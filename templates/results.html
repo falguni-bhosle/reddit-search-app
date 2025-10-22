@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Results - Reddit Keyword Search</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -14,9 +16,9 @@
         </header>
 
         <div class="action-buttons">
-            <a href="{{ url_for('download_results') }}" class="btn btn-primary">Download Excel</a>
-            <a href="{{ url_for('reset') }}" class="btn btn-outline">New Search</a>
-            <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Home</a>
+            <a href="/download" class="btn btn-primary">Download Excel</a>
+            <a href="/reset" class="btn btn-outline">New Search</a>
+            <a href="/" class="btn btn-secondary">Back to Home</a>
         </div>
 
         <div class="results-container">
@@ -45,4 +47,5 @@
         </div>
     </div>
 </body>
+
 </html>
