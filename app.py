@@ -7,7 +7,7 @@ import threading
 from io import BytesIO
 
 app = Flask(__name__)
-app.secret_key = os.environ.get('SECRET_KEY', 'dev-secret-key-change-in-production')
+app.secret_key = os.environ.get('SECRET_KEY')
 
 # ---------------- Reddit API setup ----------------
 REDDIT_CLIENT_ID = os.environ.get('REDDIT_CLIENT_ID')
