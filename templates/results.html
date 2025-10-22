@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Reddit Keyword Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Search Results</h1>
+            <p>Found {{ total_results }} results from Reddit</p>
+        </header>
+
+        <div class="action-buttons">
+            <a href="{{ url_for('download_results') }}" class="btn btn-primary">Download Excel</a>
+            <a href="{{ url_for('reset') }}" class="btn btn-outline">New Search</a>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Home</a>
+        </div>
+
+        <div class="results-container">
+            {% for result in results %}
+            <div class="result-card">
+                <div class="result-header">
+                    <h3>{{ result.Title }}</h3>
+                    <span class="score">👍 {{ result.Score }}</span>
+                </div>
+                <div class="result-details">
+                    <p><strong>Keyword:</strong> {{ result.Keyword }}</p>
+                    <p><strong>Subreddit:</strong> r/{{ result.Subreddit }}</p>
+                    <p><strong>Comments:</strong> {{ result.Comments }}</p>
+                    <p><strong>Posted:</strong> {{ result.Created_UTC }}</p>
+                </div>
+                <div class="result-actions">
+                    <a href="{{ result.URL }}" target="_blank" class="btn btn-small">View Post</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="action-buttons">
+            <a href="{{ url_for('download_results') }}" class="btn btn-primary">Download Excel</a>
+            <a href="{{ url_for('reset') }}" class="btn btn-outline">New Search</a>
+        </div>
+    </div>
+</body>
+</html>
