@@ -11,5 +11,6 @@
       "src": "/(.*)",
       "dest": "/app.py"
     }
-  ]
+  ],
+  "installCommand": "chmod +x build.sh && ./build.sh"
 }
